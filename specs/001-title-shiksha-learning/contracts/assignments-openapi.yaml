@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Shiksha Assignments API
+  version: 1.0.0
+paths:
+  /api/assignments:
+    post:
+      summary: Create assignment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignmentCreate'
+      responses:
+        '201':
+          description: Created
+  /api/assignments/{id}:
+    get:
+      summary: Get assignment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+components:
+  schemas:
+    AssignmentCreate:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        due_date:
+          type: string
+          format: date-time
+        visibility:
+          type: object

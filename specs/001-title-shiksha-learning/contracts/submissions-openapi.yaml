@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: Shiksha Submissions API
+  version: 1.0.0
+paths:
+  /api/assignments/{assignmentId}/submissions:
+    post:
+      summary: Upload submission (expects multipart/form-data with PDF)
+      parameters:
+        - name: assignmentId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Created
+components:
+  schemas: {}

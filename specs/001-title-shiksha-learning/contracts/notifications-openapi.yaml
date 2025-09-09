@@ -1,0 +1,12 @@
+openapi: 3.0.1
+info:
+  title: Shiksha Notifications API
+  version: 1.0.0
+paths:
+  /api/notifications:
+    get:
+      summary: List notifications for a user
+      responses:
+        '200':
+          description: OK
+components: {}
